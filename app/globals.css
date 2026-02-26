@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 0 0% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 222 47% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 280 81% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 160 84% 39%;
+    --radius: 0.5rem;
+
+    /* Semantic Color Tokens for Contrast-Safe Text */
+    --color-bg-primary: 10 14 26;
+    --color-bg-secondary: 222 47% 8%;
+    --color-bg-tertiary: 222 47% 12%;
+    --color-text-primary: 0 0% 98%;
+    --color-text-secondary: 0 0% 85%;
+    --color-text-tertiary: 0 0% 70%;
+    --color-text-muted: 0 0% 60%;
+    --color-accent-emerald: 160 84% 39%;
+    --color-accent-cyan: 189 94% 43%;
+    --color-accent-purple: 280 81% 60%;
+    --color-accent-blue: 217 91% 60%;
+
+    /* Contrast-safe color combinations */
+    --text-on-dark: 0 0% 98%;
+    --text-on-dark-secondary: 0 0% 85%;
+    --text-on-light: 222 47% 11%;
+    --text-on-light-secondary: 220 40% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[#0a0e1a] text-foreground antialiased;
+    background-image:
+      radial-gradient(ellipse at top, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(
+    -45deg,
+    rgba(16, 185, 129, 0.2),
+    rgba(59, 130, 246, 0.2),
+    rgba(139, 92, 246, 0.2),
+    rgba(251, 191, 36, 0.2)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.crystal-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.crystal-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+.glow-button {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glow-button::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    45deg,
+    rgba(16, 185, 129, 0.5),
+    rgba(59, 130, 246, 0.5),
+    rgba(139, 92, 246, 0.5)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.glow-button:hover::before {
+  opacity: 1;
+}
+
+/* Contrast-Safe Text Utilities */
+@layer utilities {
+  .text-auto {
+    color: hsl(var(--text-on-dark));
+  }
+
+  .text-auto-secondary {
+    color: hsl(var(--text-on-dark-secondary));
+  }
+
+  .text-auto-muted {
+    color: hsl(var(--color-text-muted));
+  }
+
+  .heading-auto {
+    color: hsl(var(--color-text-primary));
+    font-weight: 900;
+  }
+
+  .bg-auto-primary {
+    background-color: hsl(var(--color-bg-primary));
+  }
+
+  .bg-auto-secondary {
+    background-color: hsl(var(--color-bg-secondary));
+  }
+
+  .bg-auto-tertiary {
+    background-color: hsl(var(--color-bg-tertiary));
+  }
+
+  /* Text readability enhancement over gradients */
+  .text-readable {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8),
+                 0 0 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-readable-soft {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Contrast shield for text over complex backgrounds */
+  .contrast-shield {
+    position: relative;
+  }
+
+  .contrast-shield::before {
+    content: '';
+    position: absolute;
+    inset: -1rem;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 14, 26, 0.7) 0%,
+      rgba(10, 14, 26, 0.85) 100%
+    );
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  /* Button contrast utilities */
+  .button-auto {
+    background: linear-gradient(135deg, hsl(var(--color-accent-emerald)), hsl(var(--color-accent-cyan)));
+    color: hsl(var(--text-on-dark));
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .button-auto:hover {
+    filter: brightness(1.1);
+  }
+
+  /* High contrast text for maximum readability */
+  .text-contrast-max {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9),
+                 0 0 30px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Adaptive text backgrounds for tooltips and labels */
+  .bg-tooltip-auto {
+    background: rgba(10, 14, 26, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  /* Ensure minimum contrast on all text */
+  .ensure-contrast {
+    filter: contrast(1.1);
+  }
+}
+
+/* Map tooltip specific contrast utilities */
+@layer components {
+  .map-tooltip {
+    @apply bg-tooltip-auto text-auto px-3 py-2 rounded shadow-lg;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .card-auto {
+    @apply bg-auto-secondary text-auto border border-border;
+  }
+
+  .heading-primary {
+    @apply heading-auto text-4xl md:text-5xl;
+  }
+
+  .heading-secondary {
+    @apply heading-auto text-2xl md:text-3xl;
+  }
+
+  .body-text-auto {
+    @apply text-auto-secondary leading-relaxed;
+  }
+}
