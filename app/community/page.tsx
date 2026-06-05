@@ -4,27 +4,15 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Send, Video, Trophy, Heart } from 'lucide-react';
+import { X, Send, Play } from 'lucide-react';
 import { siteConfig } from '@/lib/siteConfig';
 import { ShareWidget } from '@/components/ShareWidget';
 import { socialMetrics } from '@/lib/tokenData';
 
-// Custom SVG for the official X logo
-const XIcon = ({ className }) => (
-  <svg
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    className={className}
-    fill="currentColor"
-  >
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-  </svg>
-);
-
 const socialChannels = [
   {
-    icon: XIcon,
-    name: 'X',
+    icon: X,
+    name: 'Twitter',
     handle: '@fuzzyrock',
     link: siteConfig.social.twitter,
     description: 'Latest updates, memes, and community highlights',
@@ -38,14 +26,16 @@ const socialChannels = [
     description: 'Main community hub for real-time chat',
     color: 'bg-blue-500 hover:bg-blue-600',
   },
+  
   {
-    icon: Video,
+    icon: Play,
     name: 'TikTok',
     handle: '@fuzzyrock',
     link: siteConfig.social.tiktok,
     description: 'Viral content and brand challenges',
     color: 'bg-pink-500 hover:bg-pink-600',
   },
+ 
 ];
 
 const memeGallery = Array.from({ length: 6 }, (_, i) => ({
@@ -120,7 +110,7 @@ export default function CommunityPage() {
                 </div>
                 <div>
                   <p className="text-4xl font-black text-cyan-600 mb-2">{socialMetrics.twitter.followers}</p>
-                  <p className="text-gray-600 font-medium">X Followers</p>
+                  <p className="text-gray-600 font-medium">Twitter Followers</p>
                 </div>
               </div>
             </Card>
