@@ -1,7 +1,19 @@
 import Link from 'next/link';
-import { Twitter, Send, MessageCircle, Instagram } from 'lucide-react';
+import { Send, Video } from 'lucide-react';
 import { siteConfig } from '@/lib/siteConfig';
 import { CoinIcon } from '@/components/assets/CoinIcon';
+
+// Custom SVG for the official X logo
+const XIcon = ({ className }) => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    className={className}
+    fill="currentColor"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 export function Footer() {
   return (
@@ -50,7 +62,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-gray-800 hover:bg-cyan-600 flex items-center justify-center transition-colors"
               >
-                <Twitter className="h-5 w-5" />
+                <XIcon className="h-5 w-5" />
               </a>
               <a
                 href={siteConfig.social.telegram}
@@ -61,20 +73,12 @@ export function Footer() {
                 <Send className="h-5 w-5" />
               </a>
               <a
-                href={siteConfig.social.discord}
+                href={siteConfig.social.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-gray-800 hover:bg-cyan-600 flex items-center justify-center transition-colors"
               >
-                <MessageCircle className="h-5 w-5" />
-              </a>
-              <a
-                href={siteConfig.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-cyan-600 flex items-center justify-center transition-colors"
-              >
-                <Instagram className="h-5 w-5" />
+                <Video className="h-5 w-5" />
               </a>
             </div>
           </div>
