@@ -109,11 +109,11 @@ export const siteConfig = {
     disclaimer: "All phases are aspirational and subject to change. No guarantees of completion, timing, or specific outcomes."
   },
 
-  social: {
-    twitter: "https://twitter.com/fuzzyrock",
-    telegram: "https://t.me/fuzzyrock",
+   social: {
+    twitter: "http://x.com/fuzzyonsol",
+    telegram: "https://t.me/fuzzycoinsol",
     discord: "https://discord.gg/fuzzyrock",
-    tiktok: "https://tiktok.com/@fuzzyrock",
+    tiktok: "https://www.tiktok.com/@fuzzyonsol",
     instagram: "https://instagram.com/fuzzyrock"
   },
 
