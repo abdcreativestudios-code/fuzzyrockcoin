@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Twitter, Send, MessageCircle, Instagram, Video, Trophy, Heart } from 'lucide-react';
+import { Twitter, Send, Video } from 'lucide-react';
 import { siteConfig } from '@/lib/siteConfig';
 import { ShareWidget } from '@/components/ShareWidget';
 import { socialMetrics } from '@/lib/tokenData';
@@ -13,7 +13,7 @@ const socialChannels = [
   {
     icon: Twitter,
     name: 'Twitter',
-    handle: '@fuzzyrock',
+    handle: '@fuzzyonsol',
     link: siteConfig.social.twitter,
     description: 'Latest updates, memes, and community highlights',
     color: 'bg-black hover:bg-gray-800',
@@ -21,35 +21,21 @@ const socialChannels = [
   {
     icon: Send,
     name: 'Telegram',
-    handle: 't.me/fuzzyrock',
+    handle: 't.me/fuzzycoinsol',
     link: siteConfig.social.telegram,
     description: 'Main community hub for real-time chat',
     color: 'bg-blue-500 hover:bg-blue-600',
   },
-  {
-    icon: MessageCircle,
-    name: 'Discord',
-    handle: 'discord.gg/fuzzyrock',
-    link: siteConfig.social.discord,
-    description: 'Organized channels for different topics',
-    color: 'bg-indigo-500 hover:bg-indigo-600',
-  },
+  
   {
     icon: Video,
     name: 'TikTok',
-    handle: '@fuzzyrock',
+    handle: '@fuzzyonsol',
     link: siteConfig.social.tiktok,
     description: 'Viral content and brand challenges',
     color: 'bg-pink-500 hover:bg-pink-600',
   },
-  {
-    icon: Instagram,
-    name: 'Instagram',
-    handle: '@fuzzyrock',
-    link: siteConfig.social.instagram,
-    description: 'Visual content and community stories',
-    color: 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600',
-  },
+
 ];
 
 const memeGallery = Array.from({ length: 6 }, (_, i) => ({
